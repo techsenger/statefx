@@ -93,7 +93,7 @@ public class GenerateInterfacesMojo extends AbstractMojo {
                  });
             }
         } else {
-            Files.createDirectory(preparedPath);
+            Files.createDirectories(preparedPath);
         }
         getLog().info("Prepared path for interfaces: " + preparedPath);
         return preparedPath;
