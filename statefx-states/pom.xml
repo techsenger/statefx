@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.techsenger.statefx</groupId>
+        <artifactId>statefx</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.techsenger.statefx</groupId>
+    <artifactId>statefx-states</artifactId>
+    <packaging>jar</packaging>
+    <name>StateFX - States</name>
+    <description>Generated state interfaces</description>
+    <url>https://github.com/techsenger/statefx</url>
+
+    <properties>
+        <checkstyle.plugin.skip>true</checkstyle.plugin.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.techsenger.statefx</groupId>
+            <artifactId>statefx-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.techsenger.statefx</groupId>
+                <artifactId>statefx-maven-plugin</artifactId>
+                <version>${project.version}</version>
+                <executions>
+                    <execution>
+                        <id>generate-interfaces</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>generate-interfaces</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <path>${basedir}/src/main/java/com/techsenger/statefx/states</path>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
+
+
+
+
+

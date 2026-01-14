@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.techsenger.statefx</groupId>
+        <artifactId>statefx</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.techsenger.statefx</groupId>
+    <artifactId>statefx-benchmark</artifactId>
+    <packaging>jar</packaging>
+    <name>StateFX - Benchmark</name>
+    <description>Benchmark tests</description>
+    <url>https://github.com/techsenger/statefx</url>
+
+    <properties>
+        <checkstyle.plugin.skip>true</checkstyle.plugin.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.techsenger.statefx</groupId>
+            <artifactId>statefx-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.techsenger.statefx</groupId>
+            <artifactId>statefx-states</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.techsenger.maven.plugins</groupId>
+                <artifactId>bom-properties-maven-plugin</artifactId>
+                <version>${bom.properties.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-bom-properties</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>copy-properties</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <boms>
+                        <bom>
+                            <groupId>com.techsenger.osp.bom</groupId>
+                            <artifactId>osp-bom</artifactId>
+                            <version>${bom.version}</version>
+                            <prefix>bom</prefix>
+                            <caseSensitive>false</caseSensitive>
+                            <includes>
+                                <include>*.version</include>
+                            </includes>
+                        </bom>
+                    </boms>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.openjdk.jmh</groupId>
+                            <artifactId>jmh-generator-annprocess</artifactId>
+                            <version>${bom.jmh.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
+
+
+
+
+
